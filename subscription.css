@@ -1,0 +1,31 @@
+.pricing-header {
+    max-width: 700px;
+}
+
+.pb-md-4 {
+    padding-bottom: 1.5rem !important;
+}
+.text-center {
+    text-align: center !important;
+}
+.p-3 {
+    padding: 1rem !important;
+}
+.mx-auto {
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+}
+
+.row{
+    width: 1000px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
