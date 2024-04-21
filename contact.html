@@ -18,37 +18,68 @@
 </head>
 <body>
 <div class="contact_form">
-    <h1 style="color: rgb(75, 15, 131);">Get in touch by filling out the form. We’ll respond as soon we can.</h1>
-<form id="contact_form" name="contact_form" method="post">
-    <div class="mb-5 row">
-        <div class="col">
-            <label>First Name</label>
-            <input type="text" required maxlength="50" class="form-control" id="first_name" name="first_name" placeholder="Enter your first name">
+    <h1 style="color: rgb(75, 15, 131);">Get a chance to win the jackpot.</h1>
+    <form id="contact_form" name="contact_form" method="post" onsubmit="return validateForm()">
+        <div class="mb-5 row">
+            <div class="col">
+                <label>First Name</label>
+                <input type="text" required maxlength="50" class="form-control" id="first_name" name="first_name" placeholder="Enter your first name">
+            </div>
+            <div class="col">
+                <label>Last Name</label>
+                <input type="text" required maxlength="50" class="form-control" id="last_name" name="last_name" placeholder="Enter your Last name">
+            </div>
         </div>
-        <div class="col">
-            <label>Last Name</label>
-            <input type="text" required maxlength="50" class="form-control" id="last_name" name="last_name" placeholder="Enter your Last name">
+        <div class="mb-5 row">
+            <div class="col">
+                <label for="email_addr">Email address</label>
+                <input type="email" required maxlength="50" class="form-control" id="email_addr" name="email"
+                    placeholder="name@example.com">
+            </div>
+            <div class="col">
+                <label for="phone_input">Phone</label>
+                <input type="tel" required maxlength="50" class="form-control" id="phone_input" name="Phone"
+                    placeholder="Enter your phone number">
+            </div>
         </div>
-    </div>
-    <div class="mb-5 row">
-        <div class="col">
-            <label for="email_addr">Email address</label>
-            <input type="email" required maxlength="50" class="form-control" id="email_addr" name="email"
-                placeholder="name@example.com">
+        <div class="mb-5">
+            <label for="message">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Type here for any queries"></textarea>
         </div>
-        <div class="col">
-            <label for="phone_input">Phone</label>
-            <input type="tel" required maxlength="50" class="form-control" id="phone_input" name="Phone"
-                placeholder="Enter your phone number">
-        </div>
-    </div>
-    <div class="mb-5">
-        <label for="message">Message</label>
-        <textarea class="form-control" id="message" name="message" rows="5" placeholder="Type here for any queries"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary px-4 btn-lg">Post</button>
+        <button type="submit" class="btn btn-primary px-4 btn-lg">Post</button>
+    </form>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</form>
+
+<script>
+    function validateForm() {
+        var firstName = document.getElementById("first_name").value;
+        var lastName = document.getElementById("last_name").value;
+        var email = document.getElementById("email_addr").value;
+        var phone = document.getElementById("phone_input").value;
+
+        // Basic validation, you can add more complex validation as needed
+        if (firstName.trim() === "" || lastName.trim() === "" || email.trim() === "" || phone.trim() === "") {
+            alert("All fields are required");
+            return false;
+        }
+
+        // Email validation
+        var emailPattern = /^\S+@\S+\.\S+$/;
+        if (!emailPattern.test(email)) {
+            alert("Invalid email address");
+            return false;
+        }
+
+        // Phone number validation
+        var phonePattern = /^\d{10}$/; // Assuming phone number should be 10 digits
+        if (!phonePattern.test(phone)) {
+            alert("Invalid phone number");
+            return false;
+        }
+
+        return true; // Form submission will proceed if all validations pass
+    }
+</script>
 </body>
 </html>
